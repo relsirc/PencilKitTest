@@ -31,17 +31,37 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OFk-Kh-HTI">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="camera" catalog="system" id="PHW-Cf-wg6">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="saveToCamera:" destination="BYZ-38-t0r" id="9OH-Og-IuE"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="hand.draw" catalog="system" style="plain" id="ucM-ee-x7s">
-                            <connections>
-                                <action selector="togglePencilOrFinger:" destination="BYZ-38-t0r" id="jOB-Qd-xuG"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="camera" catalog="system" id="PHW-Cf-wg6">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="saveToCamera:" destination="BYZ-38-t0r" id="9OH-Og-IuE"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrowshape.turn.up.left.fill" catalog="system" id="lvO-ar-pgA">
+                                <connections>
+                                    <action selector="undo:" destination="dkx-z0-nzr" id="BFn-7G-YJB"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrowshape.turn.up.right.fill" catalog="system" id="JJC-0p-F0H">
+                                <connections>
+                                    <action selector="redo:" destination="dkx-z0-nzr" id="Qjn-HH-ie8"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem image="hand.draw" catalog="system" style="plain" id="ucM-ee-x7s">
+                                <connections>
+                                    <action selector="togglePencilOrFinger:" destination="BYZ-38-t0r" id="jOB-Qd-xuG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="paintpalette" catalog="system" style="plain" id="c2w-9a-Cn2">
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="togglePalette:" destination="BYZ-38-t0r" id="axY-WC-KF9"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="PHW-Cf-wg6" id="rUi-qC-pni"/>
@@ -73,10 +93,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="camera" catalog="system" width="128" height="94"/>
         <image name="hand.draw" catalog="system" width="128" height="113"/>
+        <image name="paintpalette" catalog="system" width="128" height="105"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

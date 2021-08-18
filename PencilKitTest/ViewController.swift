@@ -10,7 +10,7 @@ import PencilKit
 import Photos
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var cursorButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         updateLayout(for: toolPicker)
         canvasView.becomeFirstResponder()
     }
-
+    
     override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         
         let drawing = canvasView.drawing
         let contentHeight: CGFloat
-       
+        
         if !drawing.bounds.isNull {
             contentHeight = max(canvasView.bounds.height, (drawing.bounds.maxY + self.canvasOverscrollHeight) * canvasView.zoomScale)
         }
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
         if canvasView.drawingPolicy == .pencilOnly {
             policy = .default
         }
-
+        
         canvasView.drawingPolicy = policy
         if policy == .default {
             cursorButton.image = UIImage(systemName: "hand.draw")
@@ -104,6 +104,14 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func togglePalette(_ sender: Any) {
+        if canvasView.isFirstResponder{
+            canvasView.resignFirstResponder()
+        }else{
+            canvasView.becomeFirstResponder()
+        }
+    }
+    
     /// MARK: - Helper function
     /// Note that the tool picker floats over the canvas in regular size classes, but docks to
     /// the canvas in compact size classes, occupying a part of the screen that the canvas
@@ -123,7 +131,7 @@ class ViewController: UIViewController {
         // redo buttons.
         else {
             canvasView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: view.bounds.maxY - obscuredFrame.minY, right: 0)
-        
+            
         }
         canvasView.scrollIndicatorInsets = canvasView.contentInset
     }
